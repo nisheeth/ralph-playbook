@@ -71,6 +71,12 @@ Execute the instructions above."
         --output-format stream-json \
         --include-partial-messages | node "$SCRIPT_DIR/parse_stream.js"
 
+    if [ $? -ne 0 ]; then
+        echo ""
+        echo "Pipeline exited with non-zero status. Stopping loop."
+        exit 1
+    fi
+    
     echo ""
     echo "✅ Claude iteration complete"
 
