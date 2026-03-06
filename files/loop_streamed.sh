@@ -71,12 +71,12 @@ Execute the instructions above."
 
     # Stream JSON with partial messages, parse for readable output
     SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-        claude -p "$FULL_PROMPT" \
-            --dangerously-skip-permissions \
-            --model opus \
-            --verbose \
-            --output-format stream-json \
-            --include-partial-messages | node "$SCRIPT_DIR/parse_stream.js"
+    claude -p "$FULL_PROMPT" \
+        --dangerously-skip-permissions \
+        --model opus \
+        --verbose \
+        --output-format stream-json \
+        --include-partial-messages | node "$SCRIPT_DIR/parse_stream.js"
     
     echo ""
     echo "✅ Claude iteration complete"
